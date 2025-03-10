@@ -24,13 +24,16 @@ jobs:
         run: pip install semgrep
 
       - name: Run Semgrep
-        run: semgrep scan --config auto --sarif > findings.sarif
+        run: semgrep scan --config auto --sarif > findings.sarif; cat findings.sarif 
 
       - name: Run SecDim Sandbox Action
         uses: secdim/sandbox-action@v1.0.0
         with:
           input_sarif_file: findings.sarif
           output_sarif_file: findings.processed.sarif
+          
+      - name: Print SARIF
+        run: cat findings.processed.sarif
 
       - name: Upload SecDim Sanbox SARIF results
         uses: github/codeql-action/upload-sarif@v3
