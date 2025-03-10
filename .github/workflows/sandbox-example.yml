@@ -24,7 +24,10 @@ jobs:
         run: pip install semgrep
 
       - name: Run Semgrep
-        run: semgrep scan --config auto --sarif > findings.sarif; cat findings.sarif 
+        run: semgrep scan --config auto --sarif > findings.sarif
+
+      - name: Print SARIF 
+        run: cat findings.sarif 
 
       - name: Run SecDim Sandbox Action
         uses: secdim/sandbox-action@v1.0.0
