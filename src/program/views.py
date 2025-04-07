@@ -19,6 +19,13 @@ def main(request):
 def say_hello(request):
     if not request.GET.get("name", None):
         return HttpResponse(
-            "Tell me who to say hello? e.g. /sayHello/?name=alice", status=200
+            "Tell me who to say hello? e.g. /sayHello/?name=bob", status=200
+        )
+    return HttpResponse(f'<h1>Hello, {request.GET["name"]}</h1>', status=200)
+
+def say_hi(request):
+    if not request.GET.get("name", None):
+        return HttpResponse(
+            "Tell me who to say hi? e.g. /sayHi/?name=bob", status=200
         )
     return HttpResponse(f'<h1>Hello, {request.GET["name"]}</h1>', status=200)
