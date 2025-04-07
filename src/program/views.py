@@ -28,4 +28,4 @@ def say_hi(request):
         return HttpResponse(
             "Tell me who to say hi? e.g. /sayHi/?name=bob", status=200
         )
-    return HttpResponse(f'<h1>Hello, {request.GET["name"]}</h1>', status=200)
+    return HttpResponse(f'<h1>Hi, test</h1>', status=200)
